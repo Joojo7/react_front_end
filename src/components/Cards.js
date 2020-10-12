@@ -17,7 +17,7 @@ function Cards() {
             />
             <CardItem
               src="images/img-2.jpg"
-              text="Beautiful IsLand"
+              text="Beautiful IsLand resort with relaxing activities"
               label="10% OFF"
               path="/services"
             />

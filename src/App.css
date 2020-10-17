@@ -42,3 +42,20 @@
   color: #fff;
   font-size: 100px;
 }
+*:hover{
+  text-decoration: none;
+}
+
+a {
+  color: black;
+  text-decoration: none !important;
+  background-color: transparent;
+}
+
+.divider {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid #eeeeee !important;
+  z-index: 99;
+}

@@ -59,3 +59,9 @@ a {
   border-top: 1px solid #eeeeee !important;
   z-index: 99;
 }
+
+@media only screen and (max-width: 375) {
+  .auth-inner {
+    width: 370px;
+  }
+}

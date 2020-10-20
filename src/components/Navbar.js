@@ -3,7 +3,7 @@ import { Button } from "./Button";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 
-function Navbar() {
+function Navbar(user = {}) {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
@@ -62,7 +62,16 @@ function Navbar() {
                 Products
               </Link>
             </li>
-
+            <li className="nav-item">
+              <Link
+                to="/products"
+                className="nav-links"
+                onClick={closeMobileMenu}
+              >
+                <p className="text-right">{user.username} </p>
+                <i className="fas fa-user" />
+              </Link>
+            </li>
             <li>
               <Link
                 to="/sign-up"

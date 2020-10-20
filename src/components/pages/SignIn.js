@@ -1,5 +1,7 @@
 import React, { useState, useEffect, Component } from "react";
 import axios from "axios";
+import { toast, ToastContainer, Zoom, Bounce } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Spinner from "react-bootstrap/Spinner";
 
 import "../../components/pagesCss/SignUp.css";
@@ -16,6 +18,18 @@ export default class SignIn extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  showToast(text) {
+    toast(text, {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   }
 
   handleChange(e) {
@@ -47,6 +61,12 @@ export default class SignIn extends Component {
       .then((res) => {
         console.log(res.data);
         this.setState({ loading: false });
+        if (res.data.code === "0017") {
+          this.showToast(res.data.message);
+        }
+        if (res.data.code === "0000") {
+          this.showToast(`welcome ${res.data.data.username}`);
+        }
         this.setState({
           username: res.data.data
             ? res.data.data.username
@@ -68,6 +88,9 @@ export default class SignIn extends Component {
   render() {
     return (
       <div className="auth-wrapper">
+        <>
+          <ToastContainer />
+        </>
         <div className="auth-inner">
           <form onSubmit={this.handleSubmit}>
             <h3>Sign In</h3>

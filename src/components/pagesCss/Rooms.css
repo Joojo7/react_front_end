@@ -1,4 +1,5 @@
-.hotelCards {
+.roomCards {
+    padding: 8rem;
     background: #fff;
   }
   
@@ -31,7 +32,7 @@
     border-radius: 2px;
   }
   
-  .hotel_cards__item__link {
+  .room_cards__item__link {
     display: flex;
     flex-flow: column;
     width: 300px;
@@ -43,7 +44,7 @@
     text-decoration: none !important;
   }
   
-  .hotel_cards__item__pic-wrap {
+  .room_cards__item__pic-wrap {
     position: relative;
     width: 100%;
     padding-top: 67%;
@@ -62,7 +63,7 @@
 .react-rater-star.is-active {
     color: #fc6;
 }
-  .hotel_cards__item__pic-wrap::after {
+  .room_cards__item__pic-wrap::after {
     content: attr(data-category);
     position: absolute;
     bottom: 0;

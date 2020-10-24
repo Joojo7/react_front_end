@@ -10,6 +10,7 @@ import Products from "./components/pages/Products";
 import SignUp from "./components/pages/SignUp";
 import SignIn from "./components/pages/SignIn";
 import HotelRooms from "./components/pages/HotelRooms";
+import Rooms from "./components/pages/Rooms";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/sign-up" component={SignUp} />
           <Route path="/sign-in" component={SignIn} />
           <Route path="/hotel-rooms" component={HotelRooms} />
+          <Route path="/rooms/:id" component={Rooms} />
         </Switch>
       </Router>
     </>

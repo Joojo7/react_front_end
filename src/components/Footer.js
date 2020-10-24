@@ -65,8 +65,6 @@ function Footer() {
         <div class="social-media-wrap">
           <div class="footer-logo">
             <Link to="/" className="social-logo">
-              {/* TRVL
-              <i class='fab fa-typo3' /> */}
               <img
                 src="images/main_logo.svg"
                 alt="Travel Image"

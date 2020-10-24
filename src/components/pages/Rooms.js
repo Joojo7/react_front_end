@@ -3,22 +3,23 @@ import Footer from "../Footer";
 import axios from "axios";
 import { toast, ToastContainer, Zoom, Bounce } from "react-toastify";
 import CardItem from "../../components/CardItem";
-import "../../components/pagesCss/HotelRooms.css";
+import "../../components/pagesCss/Rooms.css";
 
 import "react-toastify/dist/ReactToastify.css";
 import Spinner from "react-bootstrap/Spinner";
 
 import "../../components/pagesCss/SignUp.css";
 
-function HotelRooms() {
-  const [hotels, setHotels] = useState([]);
+function Rooms(props) {
+  console.log("props:", props);
+  const [rooms, setRooms] = useState([]);
   const [loading, setLoad] = useState(false);
 
   useEffect(() => {
     setLoad(true);
     axios
       .get(
-        "https://hotel-room-booking-system.herokuapp.com/api/v1.0/hotels?pageSize=50",
+        `https://hotel-room-booking-system.herokuapp.com/api/v1.0/hotels/${props.match.params.id}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -29,23 +30,22 @@ function HotelRooms() {
       )
       .then((res) => {
         setLoad(false);
-        let allHotelRooms = [];
-        let formatedHotels = [];
-        let path = "/rooms/";
+        let roomRow = [];
+        let allRooms = [];
+        let formatedRooms = [];
 
-        for (let i = 0; i < res.data.data.hotels.length; i++) {
-          formatedHotels.push(
+        for (let i = 0; i < res.data.data.rooms.length; i++) {
+          formatedRooms.push(
             <CardItem
-              linkClass="hotel_cards__item__link"
-              picWrapClass="hotel_cards__item__pic-wrap"
-              key={res.data.data.hotels[i].hotel_id}
-              src={res.data.data.hotels[i].hotel_image}
-              value={res.data.data.hotels[i].hotel_name}
-              text={res.data.data.hotels[i].hotel_name}
-              roomAmount={res.data.data.hotels[i].number_of_rooms}
+              linkClass="room_cards__item__link"
+              picWrapClass="room_cards__item__pic-wrap"
+              key={res.data.data.rooms[i].room_id}
+              src={res.data.data.rooms[i].room_image}
+              value={res.data.data.rooms[i].room_name}
+              text={res.data.data.rooms[i].room_name}
+              roomAmount={res.data.data.rooms[i].price}
               label="PROMO"
-              hotelStars={res.data.data.hotels[i].stars}
-              path={path + res.data.data.hotels[i].hotel_id}
+              path="/services"
             />
           );
         }
@@ -54,15 +54,15 @@ function HotelRooms() {
           j,
           temparray,
           chunk = 5;
-        for (i = 0, j = formatedHotels.length; i < j; i += chunk) {
-          temparray = formatedHotels.slice(i, i + chunk);
-          allHotelRooms.push(temparray);
+        for (i = 0, j = formatedRooms.length; i < j; i += chunk) {
+          temparray = formatedRooms.slice(i, i + chunk);
+          allRooms.push(temparray);
         }
 
-        setHotels(
-          allHotelRooms.map((hotelRow, index) => (
+        setRooms(
+          allRooms.map((roomRow, index) => (
             <ul key={index} className="cards__items">
-              {hotelRow}
+              {roomRow}
             </ul>
           ))
         );
@@ -89,10 +89,10 @@ function HotelRooms() {
           </div>
         </div>
       ) : (
-        <div className="hotelCards">
-          <h1>Choose from these hotels</h1>
+        <div className="roomCards">
+          <h1>Choose from these rooms</h1>
           <div className="cards__container">
-            <div className="cards__wrapper">{hotels}</div>
+            <div className="cards__wrapper">{rooms}</div>
           </div>
         </div>
       )}
@@ -100,4 +100,4 @@ function HotelRooms() {
     </div>
   );
 }
-export default HotelRooms;
+export default Rooms;

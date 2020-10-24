@@ -6,11 +6,11 @@
     text-align: center;
   }
   
-  .cards__container {
+  .hotel_cards__container {
     display: flex;
     flex-flow: column;
     align-items: center;
-    max-width: 1120px;
+    max-width: 100%;
     width: 90%;
     margin: 0 auto;
   }

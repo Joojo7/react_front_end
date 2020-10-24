@@ -91,7 +91,7 @@ function HotelRooms() {
       ) : (
         <div className="hotelCards">
           <h1>Choose from these hotels</h1>
-          <div className="cards__container">
+          <div className="hotel_cards__container">
             <div className="cards__wrapper">{hotels}</div>
           </div>
         </div>

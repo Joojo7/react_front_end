@@ -53,7 +53,7 @@ function HotelRooms() {
         let i,
           j,
           temparray,
-          chunk = 5;
+          chunk = 3;
         for (i = 0, j = formatedHotels.length; i < j; i += chunk) {
           temparray = formatedHotels.slice(i, i + chunk);
           allHotelRooms.push(temparray);
@@ -79,24 +79,26 @@ function HotelRooms() {
 
   return (
     <div>
-      {loading ? (
-        <div class="text-center">
-          <div
-            class="spinner-border spinner-border-sm text-primary"
-            role="status"
-          >
-            <span class="sr-only">Loading...</span>
+      <div className="hotelCards  h-100">
+        {loading ? (
+          <div class="text-center">
+            <div
+              class="spinner-border spinner-border-lg text-danger"
+              role="status"
+            >
+              <span class="sr-only">Loading...</span>
+            </div>
           </div>
-        </div>
-      ) : (
-        <div className="hotelCards">
-          <h1>Choose from these hotels</h1>
-          <div className="hotel_cards__container">
-            <div className="cards__wrapper">{hotels}</div>
+        ) : (
+          <div>
+            <h1>Choose from these hotels</h1>
+            <div className="hotel_cards__container">
+              <div className="hotel_cards__wrapper">{hotels}</div>
+            </div>
+            <Footer />
           </div>
-        </div>
-      )}
-      <Footer />
+        )}
+      </div>
     </div>
   );
 }

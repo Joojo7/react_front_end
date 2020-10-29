@@ -138,7 +138,7 @@ export default class SignIn extends Component {
                   class="spinner-border spinner-border-sm text-primary"
                   role="status"
                 >
-                  <span class="sr-only">Loading...</span>
+                  <span className="sr-only">Loading...</span>
                 </div>
               </div>
             ) : (

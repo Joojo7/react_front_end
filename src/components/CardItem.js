@@ -27,7 +27,13 @@ function CardItem(props) {
             {props.hotelStars ? (
               <Rater total={5} rating={props.hotelStars} />
             ) : null}
-            <h5 className="cards__item__text">{props.text}</h5>
+            <h5 className="cards__item__text">{props.text} </h5>
+            {props.roomPrice ? (
+              <h3 className="cards__item__price text-right">
+                <i class="fas fa-dollar-sign"></i>
+                {props.roomPrice}
+              </h3>
+            ) : null}
           </div>
         </Link>
       </li>

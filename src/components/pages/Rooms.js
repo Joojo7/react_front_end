@@ -42,9 +42,10 @@ function Rooms(props) {
               key={res.data.data.rooms[i].room_id}
               src={res.data.data.rooms[i].room_image}
               value={res.data.data.rooms[i].room_name}
+              roomPrice={res.data.data.rooms[i].price}
               text={res.data.data.rooms[i].room_name}
               roomAmount={res.data.data.rooms[i].price}
-              label="PROMO"
+              label="PROMO 50% 0FF!"
               path="/services"
             />
           );
@@ -53,7 +54,7 @@ function Rooms(props) {
         let i,
           j,
           temparray,
-          chunk = 5;
+          chunk = 3;
         for (i = 0, j = formatedRooms.length; i < j; i += chunk) {
           temparray = formatedRooms.slice(i, i + chunk);
           allRooms.push(temparray);
@@ -79,24 +80,32 @@ function Rooms(props) {
 
   return (
     <div>
-      {loading ? (
-        <div class="text-center">
-          <div
-            class="spinner-border spinner-border-sm text-primary"
-            role="status"
-          >
-            <span class="sr-only">Loading...</span>
+      <div className="roomCards h-100">
+        {loading ? (
+          <div class="text-center">
+            <div
+              class="spinner-border spinner-border-lg text-danger"
+              role="status"
+            >
+              <span class="sr-only">Loading...</span>
+            </div>
           </div>
-        </div>
-      ) : (
-        <div className="roomCards">
-          <h1>Choose from these rooms</h1>
-          <div className="cards__container">
-            <div className="cards__wrapper">{rooms}</div>
+        ) : (
+          <div>
+            {rooms.length > 0 ? (
+              <div>
+                <h1>Choose from these rooms</h1>
+                <div className="cards__container">
+                  <div className="cards__wrapper">{rooms}</div>
+                </div>
+                <Footer />
+              </div>
+            ) : (
+              <h1 className="h-100">Sorry there are no rooms available</h1>
+            )}
           </div>
-        </div>
-      )}
-      <Footer />
+        )}
+      </div>
     </div>
   );
 }

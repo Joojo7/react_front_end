@@ -1,9 +1,9 @@
 .navbar {
     background: linear-gradient(-90deg, #E94335,#d11808);
     height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
     font-size: 1.2rem;
     position: fixed !important;
     width: 100%;
@@ -129,12 +129,12 @@
       transform: translate(25%, 50%);
     }
 
-    .navbar-logo-icon{
+    /* .navbar-logo-icon{
       position: absolute;
       top: 30px;
       margin-left: 3px;
       transform: translate(25%, 50%);
-    }
+    } */
   
     .menu-icon {
       display: block;

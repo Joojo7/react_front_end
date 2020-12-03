@@ -57,7 +57,7 @@ function Navbar(user = {}) {
               <Link
                 to="/hotel-rooms"
                 className="nav-links"
-                onClick={closeMobileMenu}
+                onClick={closeMobileMenu} 
               >
                 Hotels
               </Link>

@@ -16,7 +16,7 @@ body, html, .App, #root, .auth-wrapper {
   justify-content: center;
   flex-direction: column;
   text-align: left;
-  background: url('/images/hotel-3.jpeg') center center/cover no-repeat;
+  background: url('/images/hotel-3.jpg') center center/cover no-repeat;
 }
 
 .auth-inner {
